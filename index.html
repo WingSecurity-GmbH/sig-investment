@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="de-CH" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.I.G Investment AG | Offizielle Firmeninformation & Handelsregister</title>
+  
+  <meta name="description" content="Offizielle Unternehmens- und Handelsregisterinformationen der S.I.G Investment AG (UID: CHE-372.795.481) mit Sitz in Aarburg, Kanton Aargau.">
+  <meta name="keywords" content="S.I.G Investment AG, SIG Investment, CHE-372.795.481, Aarburg, Handelsregister Aargau, Beteiligungsmanagement, Fahrzeugvermietung, Igor Sajic">
+  <meta name="author" content="S.I.G Investment AG">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="S.I.G Investment AG | Offizielle Firmeninformation">
+  <meta property="og:description" content="Offizielle Handelsregisterdaten (CHE-372.795.481), Tätigkeitsbereiche und Organe der S.I.G Investment AG in Aarburg (AG).">
+  <meta property="og:locale" content="de_CH">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "S.I.G Investment AG",
+    "legalName": "S.I.G Investment AG",
+    "url": "https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481",
+    "taxID": "CHE-372.795.481",
+    "identifier": "CH-400.3.456.628-1",
+    "foundingDate": "2025-03-31",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Birkenweg 8",
+      "addressLocality": "Aarburg",
+      "postalCode": "4852",
+      "addressRegion": "AG",
+      "addressCountry": "CH"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Igor Sajic"
+    },
+    "description": "Erwerb, Veräusserung und Verwaltung von Beteiligungen sowie Managementdienstleistungen und Vermietung von Fahrzeugen."
+  }
+  </script>
+
+  <!-- Google Fonts & Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            swiss: {
+              red: '#d90429',
+              darkred: '#99001b',
+              glow: 'rgba(217, 4, 41, 0.2)'
+            },
+            navy: {
+              800: '#0f172a',
+              900: '#090d16',
+              950: '#05070d'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Leaflet CSS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-navy-950 dark:text-slate-100 transition-colors duration-200 antialiased min-h-screen flex flex-col selection:bg-swiss-red selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 glass-nav transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#top" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-swiss-red to-swiss-darkred flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-swiss-glow group-hover:scale-105 transition-transform duration-200">
+            A
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-lg tracking-tight group-hover:text-swiss-red transition-colors">SIG INVESTMENT</span>
+              <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">AG</span>
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">AARBURG • AARGAU</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <a href="#uebersicht" class="hover:text-swiss-red dark:hover:text-swiss-red transition-colors">Übersicht</a>
+          <a href="#bereiche" class="hover:text-swiss-red dark:hover:text-swiss-red transition-colors">Tätigkeitsfelder</a>
+          <a href="#register" class="hover:text-swiss-red dark:hover:text-swiss-red transition-colors">Handelsregister</a>
+          <a href="#fuehrung" class="hover:text-swiss-red dark:hover:text-swiss-red transition-colors">Führung</a>
+          <a href="#standort" class="hover:text-swiss-red dark:hover:text-swiss-red transition-colors">Standort</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3">
+          <!-- Status Indicator -->
+          <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 status-pulse"></span>
+            <span>Aktiv im Register</span>
+          </div>
+
+          <!-- Dark/Light Theme Toggle -->
+          <button type="button" class="theme-toggle-btn p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" title="Erscheinungsbild wechseln" aria-label="Theme umschalten">
+            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+
+          <!-- Quick Print Button -->
+          <button type="button" onclick="triggerPrint()" class="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-sm" title="Offizielles Datenblatt drucken">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span class="hidden lg:inline">Drucken</span>
+          </button>
+
+          <!-- Official Registry Portal Link -->
+          <a href="https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481#" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-swiss-red hover:bg-swiss-darkred transition-all shadow-md shadow-swiss-glow">
+            <span>Amtlicher Auszug</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileMenuToggle" type="button" class="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Menü öffnen">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobileMenu" class="hidden md:hidden py-4 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-3">
+        <a href="#uebersicht" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Übersicht</a>
+        <a href="#bereiche" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Tätigkeitsfelder</a>
+        <a href="#register" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Handelsregister</a>
+        <a href="#fuehrung" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Führung</a>
+        <a href="#standort" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Standort</a>
+        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
+          <button onclick="downloadJsonData()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>JSON Datenblatt exportieren</span>
+          </button>
+          <a href="https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481#" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-swiss-red">
+            <span>Handelsregister Kanton Aargau</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- ================= HERO SECTION ================= -->
+    <section id="uebersicht" class="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200/80 dark:border-slate-800/80">
+      <!-- Background Ambient Glow -->
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-swiss-red/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-3xl">
+          
+          <!-- Meta Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-swiss-red"></span>
+            <span>Handelsregisteramt Kanton Aargau</span>
+            <span class="text-slate-400 dark:text-slate-600">•</span>
+            <span class="font-mono">CHE-372.795.481</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
+            S.I.G Investment AG
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-8">
+            Schweizerische Holdinggesellschaft mit Sitz in <strong>Aarburg</strong>. Portfolio mit Fokus auf strategisches Beteiligungsmanagement, Fahrzeugvermietung, professionelle Fitness- & Ernährungsberatung, Kampfsport sowie Management- und Immobiliendienstleistungen.
+          </p>
+
+          <!-- Quick Identifiers Bar -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+            <!-- UID Card -->
+            <div class="p-3.5 rounded-2xl glass-panel flex items-center justify-between group">
+              <div>
+                <span class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase block">UID (Schweiz)</span>
+                <span class="font-mono font-bold text-sm text-slate-800 dark:text-slate-100">CHE-372.795.481</span>
+              </div>
+              <button onclick="copyToClipboard('CHE-372.795.481', 'UID')" class="p-2 rounded-xl text-slate-400 hover:text-swiss-red hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="UID kopieren">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- CH-ID Card -->
+            <div class="p-3.5 rounded-2xl glass-panel flex items-center justify-between group">
+              <div>
+                <span class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase block">CH-ID</span>
+                <span class="font-mono font-bold text-sm text-slate-800 dark:text-slate-100">CH-400.3.456.628-1</span>
+              </div>
+              <button onclick="copyToClipboard('CH-400.3.456.628-1', 'CH-ID')" class="p-2 rounded-xl text-slate-400 hover:text-swiss-red hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="CH-ID kopieren">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Domicile Card -->
+            <div class="p-3.5 rounded-2xl glass-panel flex items-center justify-between sm:col-span-2 lg:col-span-1 group">
+              <div>
+                <span class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase block">Sitz & Domizil</span>
+                <span class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">4663 Aarburg (AG)</span>
+              </div>
+              <a href="#standort" class="p-2 rounded-xl text-slate-400 hover:text-swiss-red hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Standort anzeigen">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Actions -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#register" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-all shadow-md">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Registerdaten ansehen</span>
+            </a>
+
+            <button onclick="downloadJsonData()" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm">
+              <i data-lucide="download" class="w-4 h-4 text-swiss-red"></i>
+              <span>JSON Export</span>
+            </button>
+
+            <a href="https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-swiss-red dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all">
+              <span>Original Registerauszug AG</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KEY FACTS CARDS ================= -->
+    <section class="py-12 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Rechtsform</span>
+              <div class="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
+                <i data-lucide="landmark" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-slate-900 dark:text-white">Aktiengesellschaft</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Nach Schweizer Obligationenrecht (OR Art. 620 ff.)</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Aktienkapital</span>
+              <div class="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                <i data-lucide="coins" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-slate-900 dark:text-white">CHF 100'000.00</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">1'000 Namenaktien à CHF 100 • Liberiert: CHF 50'000</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Verwaltungsrat</span>
+              <div class="p-2 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400">
+                <i data-lucide="user-check" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div>
+              <div class="text-xl font-extrabold text-slate-900 dark:text-white truncate">Igor Sajic</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Mitglied des Verwaltungsrates • Einzelunterschrift</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Eintragung & Statuten</span>
+              <div class="p-2 rounded-xl bg-red-100 dark:bg-red-950 text-swiss-red">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-slate-900 dark:text-white">Frühjahr 2025</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Statuten: 31.03.2025 • SHAB-Publikation: 17.04.2025</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TÄTIGKEITSBEREICHE ================= -->
+    <section id="bereiche" class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/60 text-swiss-red text-xs font-bold uppercase tracking-wider mb-3">
+            Geschäftszweck & Ausrichtung
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Strukturierte Tätigkeitsfelder
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-3">
+            Die Kernkompetenzen und statutarischen Aufgabenbereiche der S.I.G Investment AG gemäss offiziellem Handelsregistereintrag.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Box 1: Beteiligungen -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-red-50 dark:bg-red-950/40 text-swiss-red flex items-center justify-center mb-6">
+                <i data-lucide="briefcase" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Beteiligungsmanagement</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Erwerb, Halten, nachhaltige Entwicklung, Verwaltung und strategische Veräusserung von Unternehmensbeteiligungen im In- und Ausland.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Statutarischer Hauptzweck
+            </div>
+          </div>
+
+          <!-- Box 2: Mobility & Vermietung -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6">
+                <i data-lucide="car" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Fahrzeugvermietung & Mobility</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Professionelle Vermietung von Personenkraftwagen, Nutzfahrzeugen und Fuhrparklösungen sowie mobilitätsnahe Services.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Operatives Geschäftsfeld
+            </div>
+          </div>
+
+          <!-- Box 3: Management Dienstleistungen -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6">
+                <i data-lucide="line-chart" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Management-Services</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Erbringung von Beratungs-, Führungs- und Managementdienstleistungen für Konzerngesellschaften, verbundene Betriebe und Partner.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Strategische Unternehmensführung
+            </div>
+          </div>
+
+                    <!-- Box 4: Fitnessberatung & Coaching -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 flex items-center justify-center mb-6">
+                <i data-lucide="dumbbell" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Fitnessberatung & Coaching</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Individuelle Trainingskonzepte, Personal Coaching, funktioneller Muskelaufbau und gezielte Leistungsoptimierung für Privatpersonen und Athleten.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Health & Performance
+            </div>
+          </div>
+
+          <!-- Box 5: Ernährungsberatung -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6">
+                <i data-lucide="apple" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Ernährungsberatung</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Wissenschaftlich fundierte Ernährungskonzepte, Makro- und Mikronährstoffoptimierung sowie individuelle Ernährungspläne für Vitalität und Gesundheit.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Vitalität & Wohlbefinden
+            </div>
+          </div>
+
+          <!-- Box 6: Kampfsport Training -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-6">
+                <i data-lucide="swords" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Kampfsport Training</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Professionelles Technik- und Kampfsporttraining, Schulung von Koordination, mentaler Fokus, Kondition sowie effektive Selbstverteidigung.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Disziplin & Selbstverteidigung
+            </div>
+          </div>
+
+<!-- Box 7: Liegenschaften & Grundeigentum -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6">
+                <i data-lucide="building" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Immobilien & Liegenschaften</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Erwerb, Belastung, Verwaltung und Veräusserung von Liegenschaften und Grundeigentum in der Schweiz und im internationalen Raum.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Immobilienbewirtschaftung
+            </div>
+          </div>
+
+          <!-- Box 8: Finanzierung & Garantien -->
+          <div class="p-8 rounded-3xl glass-panel hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
+                <i data-lucide="shield-check" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Finanzierung & Garantien</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Durchführung von Finanzierungen für eigene oder fremde Rechnung sowie Stellung von Bürgschaften und Garantien für Tochtergesellschaften.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-medium">
+              Kapital- & Risikomanagement
+            </div>
+          </div>
+
+          <!-- Box 9: Schweizerischer Qualitätsstandard -->
+          <div class="p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-navy-900 dark:from-slate-800 dark:to-navy-950 text-white shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-6">
+                <i data-lucide="award" class="w-7 h-7 text-swiss-red"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Schweizer Standards</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Zuverlässigkeit, Diskretion und juristische Exzellenz im Herzen des Schweizer Wirtschaftsraums Aargau.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+              <span>CHE-372.795.481</span>
+              <span>CH-400.3.456.628-1</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= HANDELSREGISTER VOLLAUSZUG ================= -->
+    <section id="register" class="py-16 lg:py-24 bg-white dark:bg-navy-900 border-y border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-3">
+              Amtliche Dokumentation
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Handelsregister-Datenblatt
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2">
+              Vollständiger Datensatz des Handelsregisteramtes des Kantons Aargau.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 no-print">
+            <button onclick="downloadJsonData()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+              <i data-lucide="file-json" class="w-4 h-4 text-swiss-red"></i>
+              <span>JSON Export</span>
+            </button>
+            <button onclick="triggerPrint()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>Auszug drucken</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Master Table / Structured Specs -->
+        <div class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm bg-slate-50/50 dark:bg-slate-900/40">
+          
+          <!-- Section 1: Basis-Identifikation -->
+          <div class="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6 flex items-center gap-2">
+              <i data-lucide="info" class="w-4 h-4 text-swiss-red"></i>
+              1. Stammdaten & Identifikatoren
+            </h3>
+
+            <dl class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Offizielle Firma</dt>
+                <dd class="text-slate-900 dark:text-white font-bold text-base mt-0.5">S.I.G Investment AG</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Rechtsform</dt>
+                <dd class="text-slate-900 dark:text-white font-semibold mt-0.5">Aktiengesellschaft (AG)</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Registerstatus</dt>
+                <dd class="mt-0.5 inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  EXISTIEREND (Aktiv)
+                </dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">UID (Unternehmens-Identifikator)</dt>
+                <dd class="font-mono font-bold text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+                  <span>CHE-372.795.481</span>
+                  <button onclick="copyToClipboard('CHE-372.795.481', 'UID')" class="text-slate-400 hover:text-swiss-red" title="Kopieren">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">CH-ID (Eidgenössische Firmennummer)</dt>
+                <dd class="font-mono font-bold text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+                  <span>CH-400.3.456.628-1</span>
+                  <button onclick="copyToClipboard('CH-400.3.456.628-1', 'CH-ID')" class="text-slate-400 hover:text-swiss-red" title="Kopieren">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">EHRA-ID</dt>
+                <dd class="font-mono font-semibold text-slate-800 dark:text-slate-200 mt-0.5">1689411</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Section 2: Sitz & Registeramt -->
+          <div class="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6 flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-swiss-red"></i>
+              2. Sitz & Registerführung
+            </h3>
+
+            <dl class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Sitzgemeinde / Kanton</dt>
+                <dd class="text-slate-900 dark:text-white font-semibold mt-0.5">Aarburg, Kanton Aargau (AG)</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Domiziladresse</dt>
+                <dd class="text-slate-900 dark:text-white font-semibold mt-0.5 flex items-center gap-2">
+                  <span>Birkenweg 8, 4663 Aarburg</span>
+                  <button onclick="copyToClipboard('Birkenweg 8, 4663 Aarburg', 'Adresse')" class="text-slate-400 hover:text-swiss-red" title="Kopieren">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Zuständiges Handelsregisteramt</dt>
+                <dd class="text-slate-900 dark:text-white font-semibold mt-0.5">Handelsregisteramt Kanton Aargau</dd>
+                <span class="text-xs text-slate-500">Bahnhofplatz 3c, 5000 Aarau</span>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Tagebuch-Eintrag</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">Nr. 5256 vom 14.04.2025</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">SHAB-Publikationsdatum</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">17.04.2025 (SHAB-ID: 1006312152)</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Publikationsorgan</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">Schweizerisches Handelsamtsblatt (SHAB)</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Section 3: Kapital & Aktienstruktur -->
+          <div class="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6 flex items-center gap-2">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-swiss-red"></i>
+              3. Kapitalstruktur & Statuten
+            </h3>
+
+            <dl class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Aktienkapital</dt>
+                <dd class="font-mono font-bold text-slate-900 dark:text-white text-base mt-0.5">CHF 100'000.00</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Liberierung</dt>
+                <dd class="font-mono font-bold text-slate-900 dark:text-white text-base mt-0.5">CHF 50'000.00 (50%)</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Aktienstückelung</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">1'000 Namenaktien zu CHF 100.00</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Statutendatum</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">31.03.2025</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Vinkulierung</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">Übertragbarkeit nach Statuten beschränkt</dd>
+              </div>
+
+              <div>
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Revisionsstelle</dt>
+                <dd class="text-slate-900 dark:text-white font-medium mt-0.5">Opting-out (Verzicht gem. Art. 727a Abs. 2 OR)</dd>
+              </div>
+
+              <div class="md:col-span-2 lg:col-span-3">
+                <dt class="text-slate-500 dark:text-slate-400 font-medium">Mitteilungen an die Aktionäre</dt>
+                <dd class="text-slate-800 dark:text-slate-200 mt-1">
+                  Die Mitteilungen der Gesellschaft an die Aktionäre erfolgen durch eingeschriebenen Brief oder durch E-Mail an die Adressen der im Aktienbuch eingetragenen Aktionäre.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Section 4: Amtlicher Zweck (Accordion) -->
+          <div class="p-6 sm:p-8">
+            <div class="flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion('zweck-accordion')">
+              <div class="flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4 text-swiss-red"></i>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                  4. Amtlicher Gesellschaftszweck (Volltext)
+                </h3>
+              </div>
+              <button class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 transition-transform duration-200" id="zweck-accordion-icon">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <div id="zweck-accordion" class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-serif italic bg-slate-100/50 dark:bg-slate-800/30 p-5 rounded-2xl">
+              &laquo;Die Gesellschaft bezweckt den Erwerb, die Veräusserung und Verwaltung von Beteiligungen sowie Managementdienstleistungen und Vermietung von Fahrzeugen. Die Gesellschaft kann Zweigniederlassungen und Tochtergesellschaften im In- und Ausland errichten und sich an anderen Unternehmen im In- und Ausland beteiligen sowie alle Geschäfte tätigen, die direkt oder indirekt mit ihrem Zweck in Zusammenhang stehen. Die Gesellschaft kann im In- und Ausland Grundeigentum erwerben, belasten, veräussern und verwalten. Sie kann auch Finanzierungen für eigene oder fremde Rechnung vornehmen sowie Garantien und Bürgschaften für Tochtergesellschaften und Dritte eingehen.&raquo;
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Official Registry Links & Verification Bar -->
+        <div class="mt-8 p-6 rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
+            <i data-lucide="shield-alert" class="w-5 h-5 text-swiss-red flex-shrink-0"></i>
+            <span>Verifizierte Daten aus den amtlichen Registern (Schweizerisches Handelsamtsblatt & Zefix).</span>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-swiss-red hover:bg-swiss-darkred transition-colors shadow-sm">
+              <span>Portal Kanton Aargau</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <a href="https://www.zefix.ch" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors shadow-sm">
+              <span>Zefix Eidgenössischer Index</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= ORGANE & FÜHRUNG ================= -->
+    <section id="fuehrung" class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/60 text-swiss-red text-xs font-bold uppercase tracking-wider mb-3">
+            Corporate Governance
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Verwaltung & Zeichnungsberechtigung
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-3">
+            Die eingetragenen Organe und vertretungsberechtigten Personen der Gesellschaft.
+          </p>
+        </div>
+
+        <div class="max-w-xl mx-auto">
+          <!-- Profile Card -->
+          <div class="p-8 rounded-3xl glass-panel shadow-lg border border-slate-200 dark:border-slate-700/80 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-600 text-white font-bold text-2xl flex items-center justify-center flex-shrink-0 shadow-md">
+              SA
+            </div>
+            <div class="flex-grow">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Igor Sajic</h3>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400">
+                  Einzelunterschrift
+                </span>
+              </div>
+              <p class="text-sm font-semibold text-swiss-red mb-4">Mitglied des Verwaltungsrates</p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs pt-4 border-t border-slate-200 dark:border-slate-800">
+                <div>
+                  <span class="text-slate-500 dark:text-slate-400 block font-medium">Heimatort</span>
+                  <span class="font-semibold text-slate-800 dark:text-slate-200">von Olten</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 dark:text-slate-400 block font-medium">Wohnsitz</span>
+                  <span class="font-semibold text-slate-800 dark:text-slate-200">in Aarburg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= STANDORT & KONTAKT ================= -->
+    <section id="standort" class="py-16 lg:py-24 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/60 text-swiss-red text-xs font-bold uppercase tracking-wider mb-3">
+            Firmensitz
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Standort & Anschrift
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-3">
+            Zentral gelegen im Kanton Aargau, verkehrsgünstig am Autobahnknotenpunkt der Schweiz.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Address & Info Box -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <div class="p-8 rounded-3xl glass-panel shadow-sm">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                <i data-lucide="building-2" class="w-5 h-5 text-swiss-red"></i>
+                Firmendomizil
+              </h3>
+
+              <div class="space-y-4 text-sm text-slate-700 dark:text-slate-300">
+                <div>
+                  <strong class="text-base text-slate-900 dark:text-white block font-bold">S.I.G Investment AG</strong>
+                  <span>Birkenweg 8</span><br>
+                  <span>CH-4663 Aarburg</span><br>
+                  <span>Kanton Aargau, Schweiz</span>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2">
+                  <button onclick="copyToClipboard('Birkenweg 8, 4663 Aarburg, Schweiz', 'Adresse')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    <span>Adresse kopieren</span>
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=Birkenweg+8,+4663+Aarburg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-white bg-swiss-red hover:bg-swiss-darkred transition-colors shadow-sm">
+                    <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                    <span>Route auf Google Maps</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Inquiry Card -->
+            <div class="p-8 rounded-3xl glass-panel shadow-sm">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <i data-lucide="mail" class="w-5 h-5 text-swiss-red"></i>
+                Kontakt & Mitteilungen
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">
+                Mitteilungen an die Gesellschaft können auf dem Postweg oder elektronisch übermittelt werden.
+              </p>
+
+              <form id="quickContactForm" class="space-y-4">
+                <div>
+                  <label for="contactName" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Name / Firma</label>
+                  <input type="text" id="contactName" required placeholder="Ihr Name oder Unternehmen" class="w-full px-3.5 py-2.5 rounded-xl text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-swiss-red">
+                </div>
+
+                <div>
+                  <label for="contactEmail" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">E-Mail Adresse</label>
+                  <input type="email" id="contactEmail" required placeholder="ihre.adresse@firma.ch" class="w-full px-3.5 py-2.5 rounded-xl text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-swiss-red">
+                </div>
+
+                <div>
+                  <label for="contactMessage" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nachricht / Anliegen</label>
+                  <textarea id="contactMessage" rows="3" required placeholder="Ihr Anliegen bezüglich Beteiligungen, Fahrzeugvermietung, Fitness/Ernährung/Kampfsport oder Management..." class="w-full px-3.5 py-2.5 rounded-xl text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-swiss-red"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-slate-900 dark:bg-swiss-red hover:bg-slate-800 dark:hover:bg-swiss-darkred transition-all shadow-md">
+                  Nachricht übermitteln
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- Interactive Map Container -->
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            <div id="map-container" class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm h-[480px] relative">
+              <div id="map" class="w-full h-full"></div>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-500 px-2">
+              <span class="font-mono">Koordinaten: 47.3166° N, 7.9099° E</span>
+              <span>Kartenmaterial: &copy; OpenStreetMap Mitwirkende</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-slate-300 dark:bg-navy-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-swiss-red flex items-center justify-center text-white font-extrabold text-lg">
+              A
+            </div>
+            <span class="font-bold text-lg text-white">S.I.G Investment AG</span>
+          </div>
+          <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+            Offizielle Informationsseite der S.I.G Investment AG mit Sitz in 4663 Aarburg, Kanton Aargau. Registriert unter UID CHE-372.795.481 beim Handelsregisteramt des Kantons Aargau.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Amtliche Portale</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>
+              <a href="https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                <span>Handelsregister Aargau</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.zefix.ch" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                <span>Zefix Firmenindex</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.shab.ch" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                <span>SHAB Publikationen</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Rechtliche Angaben</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>UID: <span class="font-mono text-slate-300">CHE-372.795.481</span></li>
+            <li>CH-ID: <span class="font-mono text-slate-300">CH-400.3.456.628-1</span></li>
+            <li>Rechtsform: <span class="text-slate-300">Aktiengesellschaft</span></li>
+            <li>Opting-out Revision</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2025–2026 S.I.G Investment AG. Alle Rechte vorbehalten.</p>
+        <p>Erstellt auf Basis der amtlichen Registerdaten des Kantons Aargau.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+  <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hide">
+    <div class="px-5 py-3 rounded-2xl bg-slate-900/95 dark:bg-white/95 text-white dark:text-slate-900 text-sm font-semibold shadow-2xl backdrop-blur-md flex items-center gap-3 border border-slate-700 dark:border-slate-200">
+      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 dark:text-emerald-600"></i>
+      <span id="toastMessage">In die Zwischenablage kopiert!</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

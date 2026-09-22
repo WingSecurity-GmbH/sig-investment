@@ -1,0 +1,98 @@
+{
+  "company": {
+    "name": "S.I.G Investment AG",
+    "legalForm": "Aktiengesellschaft (AG)",
+    "legalFormShort": "AG",
+    "legalFormCode": 3,
+    "status": "EXISTIEREND",
+    "statusLabel": "Aktiv / Eingetragen",
+    "uid": "CHE-372.795.481",
+    "uidRaw": "CHE372795481",
+    "chid": "CH-400.3.456.628-1",
+    "chidRaw": "CH40034566281",
+    "ehraid": 1689411,
+    "statutesDate": "2025-03-31",
+    "foundationYear": 2025,
+    "seat": "Aarburg",
+    "canton": "Aargau",
+    "cantonCode": "AG",
+    "registryOffice": "Handelsregisteramt des Kantons Aargau",
+    "registryOfficeAddress": "Bahnhofplatz 3c, 5000 Aarau",
+    "journalEntry": {
+      "number": 5256,
+      "date": "2025-04-14"
+    },
+    "shabPublication": {
+      "id": 1006312152,
+      "date": "2025-04-17",
+      "organ": "Schweizerisches Handelsamtsblatt (SHAB)"
+    },
+    "domicile": {
+      "street": "Birkenweg",
+      "houseNumber": "8",
+      "postalCode": "4663",
+      "city": "Aarburg",
+      "country": "Schweiz",
+      "coordinates": {
+        "latitude": 47.3165857,
+        "longitude": 7.9099417
+      }
+    },
+    "capital": {
+      "shareCapital": "CHF 100'000.00",
+      "nominalValue": 100000.0,
+      "liberation": "CHF 50'000.00",
+      "liberationValue": 50000.0,
+      "shares": "1'000 Namenaktien zu je CHF 100.00",
+      "shareCount": 1000,
+      "shareNominal": 100.0,
+      "restriction": "Die Übertragbarkeit der Namenaktien ist nach Massgabe der Statuten beschränkt (Vinkulierung)."
+    },
+    "management": [
+      {
+        "name": "Igor Sajic",
+        "origin": "von Olten",
+        "residence": "in Aarburg",
+        "role": "Mitglied des Verwaltungsrates",
+        "signingPower": "Einzelunterschrift"
+      }
+    ],
+    "auditor": {
+      "status": "Opting-out",
+      "details": "Gemäss Erklärung bei der Gründung der Gesellschaft wird auf eine eingeschränkte Revision verzichtet."
+    },
+    "communications": "Die Mitteilungen der Gesellschaft an die Aktionäre erfolgen durch eingeschriebenen Brief oder durch E-Mail an die Adressen der im Aktienbuch eingetragenen Aktionäre.",
+    "purpose": "Die Gesellschaft bezweckt den Erwerb, die Veräusserung und Verwaltung von Beteiligungen sowie Managementdienstleistungen und Vermietung von Fahrzeugen. Die Gesellschaft kann Zweigniederlassungen und Tochtergesellschaften im In- und Ausland errichten und sich an anderen Unternehmen im In- und Ausland beteiligen sowie alle Geschäfte tätigen, die direkt oder indirekt mit ihrem Zweck in Zusammenhang stehen. Die Gesellschaft kann im In- und Ausland Grundeigentum erwerben, belasten, veräussern und verwalten. Sie kann auch Finanzierungen für eigene oder fremde Rechnung vornehmen sowie Garantien und Bürgschaften für Tochtergesellschaften und Dritte eingehen.",
+    "businessSectors": [
+      {
+        "title": "Beteiligungsmanagement & Holding",
+        "description": "Erwerb, Halten, Verwaltung und strategische Veräusserung von Unternehmensbeteiligungen im In- und Ausland.",
+        "icon": "briefcase"
+      },
+      {
+        "title": "Fahrzeugvermietung & Mobility",
+        "description": "Professionelle Vermietung und Management von Fahrzeugen sowie mobilitätsnahe Dienstleistungen.",
+        "icon": "car"
+      },
+      {
+        "title": "Management & Consulting",
+        "description": "Erbringung von Führungs-, Beratungs- und Managementdienstleistungen für verbundene Unternehmen und Dritte.",
+        "icon": "users"
+      },
+      {
+        "title": "Immobilien & Liegenschaften",
+        "description": "Erwerb, Verwaltung, Belastung und Veräusserung von Grundeigentum im In- und Ausland.",
+        "icon": "building-2"
+      },
+      {
+        "title": "Finanzierungen & Bürgschaften",
+        "description": "Finanzierungsgeschäfte auf eigene oder fremde Rechnung sowie Gewährung von Garantien für Tochtergesellschaften.",
+        "icon": "trending-up"
+      }
+    ],
+    "officialLinks": {
+      "cantonExcerpt": "https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-372.795.481",
+      "zefix": "https://www.zefix.ch"
+    }
+  }
+}
