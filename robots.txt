@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wingsecurity-gmbh.github.io/sig-investment/sitemap.xml
